@@ -16,7 +16,7 @@ License: You must have a valid license purchased only from themeforest(the above
 	<!--begin::Head-->
 	<head><base href="../../../../">
 		<meta charset="utf-8" />
-		<title>Student Sign In</title>
+		<title>Exam Sign In</title>
 		<meta name="description" content="Singin page example" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 		<link rel="canonical" href="https://keenthemes.com/metronic" />
@@ -68,7 +68,7 @@ License: You must have a valid license purchased only from themeforest(the above
                             @csrf
 								<!--begin::Title-->
 								<div class="pb-5 pb-lg-15">
-									<h3 class="font-weight-bolder text-dark font-size-h2 font-size-h1-lg text-center">Student Sign In</h3>	
+									<h3 class="font-weight-bolder text-dark font-size-h2 font-size-h1-lg text-center">Exam Sign In</h3>	
 								</div>
 								@if ($errors->any())
 									<div class="alert alert-danger">

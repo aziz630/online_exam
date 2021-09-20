@@ -40,12 +40,12 @@
 				<!--begin::Content-->
 				<div class="login-content flex-row-fluid d-flex flex-column p-10">
 					<!--begin::Top-->
-					<div class="text-right d-flex justify-content-center">
+					<!-- <div class="text-right d-flex justify-content-center">
 						<div class="top-signin text-right d-flex justify-content-end pt-5 pb-lg-0 pb-10">
 							<span class="font-weight-bold text-muted font-size-h4">Having issues?</span>
 							<a href="javascript:;" class="font-weight-bold text-primary font-size-h4 ml-2" id="kt_login_signup">Get Help</a>
 						</div>
-					</div>
+					</div> -->
 					<!--end::Top-->
 					<!--begin::Wrapper-->
 					<div class="d-flex flex-row-fluid flex-center">
@@ -54,12 +54,13 @@
 							<!--begin::Form-->
 							<form action="{{ route('save.signUp') }}" method="post" class="form" >
 								@csrf
-								<!--begin::Title-->
+
 								<div class="pb-5 pb-lg-15">
-									<h3 class="font-weight-bolder text-dark font-size-h2 font-size-h1-lg text-center">Portal Sign Up</h3>
-									
+									<h3 class="font-weight-bolder text-dark font-size-h2 font-size-h1-lg text-center">Student Sign Up</h3>
+									<span class="text-muted font-weight-bold font-size-h4" >Already Have Account?
+									<a href="{{ url('portal/signIn') }}" id="kt_login_signup" class="text-primary font-weight-bolder text-center">Login</a></span>
 								</div>
-								<!--begin::Title-->
+								
 								<!--begin::Form group-->
 
 								<div class="form-group">

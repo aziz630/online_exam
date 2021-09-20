@@ -17,6 +17,12 @@ use App\Http\Controllers\StudentOperation;
 |
 */
 
+Route::group(['middleware' => ['prevent-back-history']],function(){
+
+
+Route::group(['middleware' => ['auth']], function () {
+    
+
 Route::middleware(['auth:sanctum', 'verified'])->get('/', [AdminController::class, 'index'] )->name('dashboard');
 
 Route::get('/exam/subject', [AdminController::class, 'Exam_Subject']);
@@ -65,6 +71,7 @@ Route::put('/editPortal/{id}', [AdminController::class, 'Update_Portal']);
 Route::delete('/deletePortal/{id}', [AdminController::class, 'Delete_Exam']);
 Route::get('/portal_status/{id}', [AdminController::class, 'Portal_Status']);
 
+});
 
 // Portal routes
 Route::get('/portal/signIn', [PortalController::class, 'Portal_SignIn']);
@@ -90,3 +97,8 @@ Route::get('/student/show_result/{id}', [StudentOperation::class, 'Show_Exam_Res
 Route::get('/student_dashboard', [StudentOperation::class, 'Student_Dashboard']);
 Route::get('/student/exam', [StudentOperation::class, 'Student_exam']);
 Route::get('/student/logout', [StudentOperation::class, 'Student_LogOut']);
+
+// Route::get('/pagination/fetch_data/{id}', [StudentOperation::class, 'fetch_data']);
+
+
+});

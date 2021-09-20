@@ -16,7 +16,7 @@
         
     </div>
     <div class="card-body">
-        <form action="{{ url('update/exam/question') }}" method="post" class="database_operation">
+        <form action="{{ url('update/exam/question') }}" method="post" >
            @csrf
             <div class="container-fluid">
                 <div class="row">
@@ -39,19 +39,19 @@
                     </div>
                     <div class="col-sm-6">
                         <label for="recipient-name" class="col-form-label">Enter Option 2:</label>
-                        <input type="text" class="form-control" name="option2" required="required" value="{{ $options->option1 }}">
+                        <input type="text" class="form-control" name="option2" required="required" value="{{ $options->option2 }}">
                         <span class="form-text text-muted">Please enter Option 2</span>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-sm-6">
                         <label for="recipient-name" class="col-form-label">Enter Option 3:</label>
-                        <input type="text" class="form-control" name="option3" required="required" value="{{ $options->option2 }}">
+                        <input type="text" class="form-control" name="option3" required="required" value="{{ $options->option3 }}">
                         <span class="form-text text-muted">Please enter Option 3</span>
                     </div>
                     <div class="col-sm-6">
                         <label for="recipient-name" class="col-form-label">Enter Option 4:</label>
-                        <input type="text" class="form-control" name="option4" required="required" value="{{ $options->option3 }}">
+                        <input type="text" class="form-control" name="option4" required="required" value="{{ $options->option4 }}">
                         <span class="form-text text-muted">Please enter Option 4</span>
                     </div>
                 </div>

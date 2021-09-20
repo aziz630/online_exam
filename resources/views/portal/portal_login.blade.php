@@ -68,7 +68,7 @@ License: You must have a valid license purchased only from themeforest(the above
                             @csrf
 								<!--begin::Title-->
 								<div class="pb-5 pb-lg-15">
-									<h3 class="font-weight-bolder text-dark font-size-h2 font-size-h1-lg text-center">Portal Sign Up</h3>
+									<h3 class="font-weight-bolder text-dark font-size-h2 font-size-h1-lg text-center">Student Sign In</h3>
 									<span class="text-muted font-weight-bold font-size-h4" >New Here?
 									<a href="{{ url('portal/signUp') }}" id="kt_login_signup" class="text-primary font-weight-bolder text-center">Create an Account</a></span>
 								</div>

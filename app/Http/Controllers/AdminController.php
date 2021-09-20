@@ -22,7 +22,7 @@ class AdminController extends Controller
 
     public function index()
     {
-        $page_title = 'Dashboard';
+        $page_title = 'Admin Dashboard';
         
         $TotalExam = Exam::where('status', true)->count();
         $TotalStudents = Student::where('status', true)->count();
@@ -585,12 +585,9 @@ class AdminController extends Controller
         ));
         $question->status = true;
         $question->update();
-        // if($question->save()){
-        //     $question->ExamSubject()->sync($request->subjects);
-        // }
             
-        echo json_encode(array('status'=> 'true', 'message'=> 'Question Updated Successfully', 'reload'=> url('exam/question/'.$request->exam_id)));
-        // return redirect(url('exam/question/'.$request->exam_id))->withSuccess('Question Updated Successfully.');
+        // echo json_encode(array('status'=> 'true', 'message'=> 'Question Updated Successfully', 'reload'=> url('exam/question/'.$question->exam_id)));
+        return redirect(url('exam/question/'.$question->exam_id))->withSuccess('Question Updated Successfully.');
     }
 
 

@@ -36,7 +36,7 @@
                     <div class="form-group">
                         <label for="recipient-name" class="col-form-label">Email:</label><span class="text-danger">*</span>
                         <input type="text" class="form-control" name="email" required="required"
-                        value="{{ old('email') }}">
+                        value="">
                         <span class="form-text text-muted">Please enter email number</span>
                     </div>
                 </div>

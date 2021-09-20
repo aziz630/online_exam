@@ -282,13 +282,13 @@
                                
                                 <!--begin::User-->
                                 <div class="topbar-item">
-                                    <div class="btn btn-icon btn-icon-mobile w-auto btn-clean d-flex align-items-center btn-lg px-2" id="kt_quick_user_toggle">
+                                    <!-- <div class="btn btn-icon btn-icon-mobile w-auto btn-clean d-flex align-items-center btn-lg px-2" id="kt_quick_user_toggle">
                                         <span class="text-muted font-weight-bold font-size-base d-none d-md-inline mr-1">Hi,</span>
                                         <span class="text-dark-50 font-weight-bolder font-size-base d-none d-md-inline mr-3">portal</span>
                                         <span class="symbol symbol-lg-35 symbol-25 symbol-light-success">
                                             <span class="symbol-label font-size-h5 font-weight-bold">>></span>
                                         </span>
-                                    </div>
+                                    </div> -->
                                 </div>
                                 <!--end::User-->
                             </div>
@@ -356,8 +356,7 @@
 			<!--end::Page-->
 		</div>
 		<!--end::Main-->
-        <div id="kt_quick_user" class="offcanvas offcanvas-right p-10">
-			<!--begin::Header-->
+        <!-- <div id="kt_quick_user" class="offcanvas offcanvas-right p-10">
 			<div class="offcanvas-header d-flex align-items-center justify-content-between pb-5">
 				<h3 class="font-weight-bold m-0">User Profile
 				<small class="text-muted font-size-sm ml-2">12 messages</small></h3>
@@ -365,10 +364,8 @@
 					<i class="ki ki-close icon-xs text-muted"></i>
 				</a>
 			</div>
-			<!--end::Header-->
-			<!--begin::Content-->
+			
 			<div class="offcanvas-content pr-5 mr-n5">
-				<!--begin::Header-->
 				<div class="d-flex align-items-center mt-5">
 					<div class="symbol symbol-100 mr-5">
 						<div class="symbol-label" style="background-image:url('assets/media/users/300_21.jpg')"></div>
@@ -382,7 +379,6 @@
 								<span class="navi-link p-0 pb-2">
 									<span class="navi-icon mr-1">
 										<span class="svg-icon svg-icon-lg svg-icon-primary">
-											<!--begin::Svg Icon | path:assets/media/svg/icons/Communication/Mail-notification.svg-->
 											<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
 												<g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
 													<rect x="0" y="0" width="24" height="24" />
@@ -390,7 +386,6 @@
 													<circle fill="#000000" opacity="0.3" cx="19.5" cy="17.5" r="2.5" />
 												</g>
 											</svg>
-											<!--end::Svg Icon-->
 										</span>
 									</span>
 									<span class="navi-text text-muted text-hover-primary">email</span>
@@ -400,10 +395,8 @@
 						</div>
 					</div>
 				</div>
-				<!--end::Header-->
-				<!--begin::Separator-->
+				
 				<div class="separator separator-dashed mt-8 mb-5"></div>
-				<!--end::Separator-->
 
 
         
@@ -411,8 +404,7 @@
 			
 				
 			</div>
-			<!--end::Content-->
-		</div>
+		</div> -->
 	
 		<script>var HOST_URL = "https://preview.keenthemes.com/metronic/theme/html/tools/preview";</script>
 		<!--begin::Global Config(global config for global JS scripts)-->

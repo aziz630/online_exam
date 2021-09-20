@@ -7,7 +7,7 @@ use App\Models\ExamQuestionMaster;
 use App\Models\ExamResult;
 use App\Models\Exam;
 use Illuminate\Http\Request;
-
+use DB;
 class StudentOperation extends Controller
 {
     public function Student_Dashboard()
@@ -67,7 +67,7 @@ class StudentOperation extends Controller
     public function Join_Exam($id)
     { 
         $data['page_title'] = 'Start Exam';
-        $data['allQuestion1'] = ExamQuestionMaster::where('exam_id', $id)->orderBy('exam_question_masters.subject', 'ASC')->get()->random(9)->paginate(2);
+        $data['allQuestion1'] = ExamQuestionMaster::where('exam_id', $id)->orderBy('exam_question_masters.subject', 'ASC')->get()->random(6);
         
 
        return view('student.join_exam', $data);

@@ -362,7 +362,7 @@
 			@foreach($allQuestion1 as $key => $questions)
 			<div class="row">
 				<div class="col-md-12">
-					<p><b>{{ $key+1 }}  :   {{ $questions['questions'] }}</b></p>
+					<p><b>{{ $key+1 }}  :  {{ $questions['questions'] }}</b></p>
 					<br>
 					<?php
 						$options = json_decode(json_encode(json_decode($questions['options'])), true);
@@ -422,18 +422,15 @@
 			<br>
 			<br>
 			<div class="d-flex justify-content-center">
-			{!! $allQuestion1->links() !!}
-                {{-- <!-- {!! $allQuestion1->links('student.custom_link') !!} --> --}}
-            </div>   
-            
+				
+			</div>   
 			<div class="row">
 				<input type="hidden" name="index" value="{{ $key+1 }}">
 				<div class="form-group">
 					<button type="submit" class="btn btn-primary btn-pill add_category">Submit</button>
 					<!-- <button type="button" class="btn btn-secondary btn-pill" data-dismiss="modal">Back</button> -->
 				</div>
-			</div>     
-			
+			</div> 
         </div>
     </form>
 
@@ -442,18 +439,20 @@
 </div>
 
 
-<!-- <style>
+<style>
 	.w-5{
 		display: none;
 	}
-</style> -->
-<style type="text/css">
+</style>
+<!-- <style type="text/css">
 	.my-active span{
 		background-color: #5cb85c !important;
 		color: white !important;
 		border-color: #5cb85c !important;
 	}
-</style>
+</style> -->
+
+
 
 
 
