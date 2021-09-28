@@ -104,6 +104,7 @@ var KTWizard1 = function () {
 	var _wizardObj;
 	var _validations = [];
 
+	/*
 	// Private functions
 	var _initValidation = function () {
 		// Init form validation rules. For more info check the FormValidation plugin's official documentation:https://formvalidation.io/
@@ -312,7 +313,9 @@ var KTWizard1 = function () {
 				}
 			}
 		));
-	}
+	} 
+	
+	*/
 
 	var _initWizard = function () {
 		// Initialize form wizard
@@ -327,30 +330,9 @@ var KTWizard1 = function () {
 				return; // Skip if stepped back
 			}
 
-			// Validate form before change wizard step
-			var validator = _validations[wizard.getStep() - 1]; // get validator for currnt step
+			wizard.goTo(wizard.getNewStep());
 
-			if (validator) {
-				validator.validate().then(function (status) {
-					if (status == 'Valid') {
-						wizard.goTo(wizard.getNewStep());
-
-						KTUtil.scrollTop();
-					} else {
-						Swal.fire({
-							text: "Sorry, looks like there are some errors detected, please try again.",
-							icon: "error",
-							buttonsStyling: false,
-							confirmButtonText: "Ok, got it!",
-							customClass: {
-								confirmButton: "btn font-weight-bold btn-light"
-							}
-						}).then(function () {
-							KTUtil.scrollTop();
-						});
-					}
-				});
-			}
+			KTUtil.scrollTop();
 
 			return false;  // Do not change wizard step, further action will be handled by he validator
 		});
@@ -397,7 +379,7 @@ var KTWizard1 = function () {
 			_wizardEl = KTUtil.getById('kt_wizard');
 			_formEl = KTUtil.getById('kt_form');
 
-			_initValidation();
+			// _initValidation();
 			_initWizard();
 		}
 	};

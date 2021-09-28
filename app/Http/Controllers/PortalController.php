@@ -105,7 +105,7 @@ class PortalController extends Controller
         $data->name = $request->name;
         $data->email = $request->email;
         $data->phone = $request->phone;
-        $data->dob = $request->dob;
+        // $data->dob = $request->dob;
         $data->exam = $request->id;
         $data->password = $request->password;
         $data->status = false;

@@ -98,7 +98,7 @@ Route::get('/student_dashboard', [StudentOperation::class, 'Student_Dashboard'])
 Route::get('/student/exam', [StudentOperation::class, 'Student_exam']);
 Route::get('/student/logout', [StudentOperation::class, 'Student_LogOut']);
 
-// Route::get('/pagination/fetch_data/{id}', [StudentOperation::class, 'fetch_data']);
+// Route::get('/pagination/fetch_data', [StudentOperation::class, 'fetch_data']);
 
 
 });

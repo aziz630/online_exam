@@ -18,30 +18,6 @@ $(document).on('submit', '.database_operation', function(){
 })
 
 
-// pagination 
-
-// $(document).ready(function(){
-
-//     $(document).on('click', '.pagination a', function(event){
-//      event.preventDefault(); 
-//      var page = $(this).attr('href').split('page=')[1];
-//      fetch_data(page);
-//     });
-   
-//     function fetch_data(page)
-//     {
-//      $.ajax({
-//       url:"/pagination/fetch_data?page="+page,
-//       success:function(data)
-//       {
-//        $('#table_data').html(data);
-//       }
-//      });
-//     }
-    
-// });
-
-
 
 // javascript code for category status
 
@@ -95,7 +71,7 @@ $(document).on('click', '.exam_Qn_status', function(){
 
 
 
-// javascrip for timer
+// javascrip code for timer
 
 
 	var interval;
@@ -117,7 +93,7 @@ $(document).on('click', '.exam_Qn_status', function(){
 	      $('.js-timeout').html(minutes + ':' + seconds);
 
 	      if (minutes == 0 && seconds == 0) { clearInterval(interval);
-            $('#submitForm').submit();
+            $('#kt_form').submit();
             alert('time UP'); }
 	  }, 1000);
 	}

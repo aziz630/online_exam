@@ -211,6 +211,24 @@
                         
                             <span class="form-text text-muted">Please enter Right Answer</span>
                         </div>
+                        <div class="col-xl-12">
+                            <!--begin::Input-->
+                            <div class="form-group">
+                                <label>Explain Answer</label>
+                                <textarea
+                                    class="form-control form-control-solid"
+                                    name="description"
+                                    id="description"
+                                    placeholder="guardian address"
+                                ></textarea>
+                                <span class="form-text text-muted"
+                                    >Asnwer Explination.</span
+                                >
+                            
+                            </div>
+                            
+                            <!--end::Input-->
+                        </div>
                     </div>
                     @elseif(!count($subjects))
                     <h3>Subject not found</h3>

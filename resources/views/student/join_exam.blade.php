@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 
 <html lang="en">
-	<!--begin::Head-->
+	<!--begin::Head--> 
 	<head><base href="">
 		<meta charset="utf-8" />
 		<title>Online-test</title>
@@ -17,6 +17,8 @@
 		<!--begin::Page Vendors Styles(used by this page)-->
 		<link href="{{ url('assets/plugins/custom/fullcalendar/fullcalendar.bundle.css') }}" rel="stylesheet" type="text/css" />
 		<!--end::Page Vendors Styles-->
+		
+		<link href="{{ url('assets/css/pages/wizard/wizard-1.css') }}" rel="stylesheet" type="text/css" />
 		<!--begin::Global Theme Styles(used by all pages)-->
 		<link href="{{ url('assets/plugins/global/plugins.bundle.css') }}" rel="stylesheet" type="text/css" />
 		<link href="{{ url('assets/plugins/custom/prismjs/prismjs.bundle.css') }}" rel="stylesheet" type="text/css" />
@@ -348,93 +350,22 @@
                 <i class="flaticon-search text-primary"></i>
             </span>
             <h3 class="card-label">
-                {{ __("Attempt The correct Option Carfully!") }} <small>Good Luck</small>
+                {{ __("Attempt The correct Option Carfully!") }} <small>Good Luck</small> &nbsp&nbsp&nbsp&nbsp (<span id="output-area"></span>/{{ $count }} )
             </h3>
         </div>
     </div>
 
     <div class="card-body">
-      
-	<form action="{{ url('submit/student/question') }}" id="submitForm"  method="post">
-		@csrf
-		<input type="hidden" name="exam_id" value="{{ Request::segment(3) }}">
-        <div class="container">
-			@foreach($allQuestion1 as $key => $questions)
-			<div class="row">
-				<div class="col-md-12">
-					<p><b>{{ $key+1 }}  :  {{ $questions['questions'] }}</b></p>
-					<br>
-					<?php
-						$options = json_decode(json_encode(json_decode($questions['options'])), true);
-					?>
-					<input type="hidden" name="question{{ $key+1 }}" value="{{ $questions['id'] }}">
-					<div class="row">
-						<div class="col-md-6">
-						<div class="radio-inline">
-							<label class="radio radio-outline radio-outline-2x radio-primary">
-								<input type="radio" name="ans{{ $key+1 }}" value="{{ $options['option1'] }}" />
-								<span></span>{{ $options['option1'] }}</label>
-							</div>
-						</div>
-						<div class="col-md-6">
-								<div class="radio-inline">
-								<label class="radio radio-outline radio-outline-2x radio-primary">
-								<input type="radio" name="ans{{ $key+1 }}" value="{{ $options['option2'] }}"/>
-								<span></span>{{ $options['option2'] }}
-								</label>    
-							</div>
-						</div>
-					</div>
-					<br><br>
-					<div class="row">
-						<div class="col-md-6">
-								<div class="radio-inline">
-								<label class="radio radio-outline radio-outline-2x radio-primary">
-									<input type="radio" name="ans{{ $key+1 }}" value="{{ $options['option3'] }}"/>
-									<span></span>{{ $options['option3'] }}
-								</label>
-							</div>
-						</div>
-						<div class="col-md-6">
-							<div class="radio-inline">
-								<label class="radio radio-outline radio-outline-2x radio-primary">
-									<input type="radio" name="ans{{ $key+1 }}" value="{{ $options['option4'] }}"/>
-									<span></span>{{ $options['option4'] }}
-								</label>
-							</div>
-						</div>
-						<div class="col-md-6" style="display: none;">
-							<div class="radio-inline">
-								<label class="radio radio-outline radio-outline-2x radio-primary">
-									<input type="radio" name="ans{{ $key+1 }}" value="0" checked="checked" />
-									<span></span>{{ $options['option4'] }}
-								</label>
-							</div>
-						</div>
-					</div>
-				</div>  
-			</div>
-			<br>
-			<br>
-			@endforeach
-
-
-			<br>
-			<br>
-			<div class="d-flex justify-content-center">
-				
-			</div>   
-			<div class="row">
-				<input type="hidden" name="index" value="{{ $key+1 }}">
-				<div class="form-group">
-					<button type="submit" class="btn btn-primary btn-pill add_category">Submit</button>
-					<!-- <button type="button" class="btn btn-secondary btn-pill" data-dismiss="modal">Back</button> -->
+		<!-- <form action="{{ url('submit/student/question') }}" id="submitForm"  method="post">
+			@ csrf
+			<input type="hidden" name="exam_id" value="{{ Request::segment(3) }}"> -->
+			<div class="container">
+				<div id="load">
+					@include('student.quiz_app')
 				</div>
-			</div> 
-        </div>
-    </form>
-
-</div>
+			</div>
+		<!-- </form> -->
+	</div>
   
 </div>
 
@@ -444,13 +375,7 @@
 		display: none;
 	}
 </style>
-<!-- <style type="text/css">
-	.my-active span{
-		background-color: #5cb85c !important;
-		color: white !important;
-		border-color: #5cb85c !important;
-	}
-</style> -->
+
 
 
 
@@ -661,7 +586,21 @@
 			</div>
 			<!--end::Content-->
 		</div>
-	
+<script>
+	var x = 1;
+
+document.getElementById('output-area').innerHTML = x;
+
+function button1() {
+  document.getElementById('output-area').innerHTML = ++x;
+}
+
+function button2() {
+  document.getElementById('output-area').innerHTML = --x;
+}
+
+</script>
+
 		<script>var HOST_URL = "https://preview.keenthemes.com/metronic/theme/html/tools/preview";</script>
 		<!--begin::Global Config(global config for global JS scripts)-->
 		<script>var KTAppSettings = { "breakpoints": { "sm": 576, "md": 768, "lg": 992, "xl": 1200, "xxl": 1400 }, "colors": { "theme": { "base": { "white": "#ffffff", "primary": "#3699FF", "secondary": "#E5EAEE", "success": "#1BC5BD", "info": "#8950FC", "warning": "#FFA800", "danger": "#F64E60", "light": "#E4E6EF", "dark": "#181C32" }, "light": { "white": "#ffffff", "primary": "#E1F0FF", "secondary": "#EBEDF3", "success": "#C9F7F5", "info": "#EEE5FF", "warning": "#FFF4DE", "danger": "#FFE2E5", "light": "#F3F6F9", "dark": "#D6D6E0" }, "inverse": { "white": "#ffffff", "primary": "#ffffff", "secondary": "#3F4254", "success": "#ffffff", "info": "#ffffff", "warning": "#ffffff", "danger": "#ffffff", "light": "#464E5F", "dark": "#ffffff" } }, "gray": { "gray-100": "#F3F6F9", "gray-200": "#EBEDF3", "gray-300": "#E4E6EF", "gray-400": "#D1D3E0", "gray-500": "#B5B5C3", "gray-600": "#7E8299", "gray-700": "#5E6278", "gray-800": "#3F4254", "gray-900": "#181C32" } }, "font-family": "Poppins" };</script>
@@ -675,6 +614,7 @@
 		<script src="{{ url('assets/plugins/custom/fullcalendar/fullcalendar.bundle.js') }}"></script>
 		<script src="{{ url('assets/plugins/custom/datatables/datatables.bundle.js') }}"></script>
 		<!--end::Page Vendors-->
+		<script src="{{ url('assets/js/pages/custom/wizard/wizard-1.js') }}"></script>
 		<!--begin::Page Scripts(used by this page)-->
 		<script src="{{ url('assets/js/pages/widgets.js') }}"></script>
 		<script src="{{ url('assets/js/custom.js') }}"></script>

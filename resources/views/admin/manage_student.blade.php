@@ -81,7 +81,7 @@
                 <th>Name</th>
                 <th>Email</th>
                 <th>Phone</th>
-                <th>Bate Of Birth</th>
+                <!-- <th>Bate Of Birth</th> -->
                 <th>Exam</th>
                 <th>Status</th>
                 <th>Action</th>
@@ -96,7 +96,7 @@
                    <td>{{ $value->name }}</td>
                    <td>{{ $value->email }}</td>
                    <td>{{ $value->phone }}</td>
-                   <td>{{ $value->dob }}</td>
+                   <!-- <td>{{ $value->dob }}</td> -->
                    <td>{{ $value->exam_name }}</td>
                    <td><label class="checkbox checkbox-outline checkbox-success">
                     <input class="student_status" data-id="<?php echo $value->id?>" <?php if($value->status == 1) { echo "checked"; } ?> type="checkbox" name="Checkboxes15"  />
@@ -172,17 +172,6 @@
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <label>Date Of Birth </label>
-                                <input type="text" name="date" class="form-control form-control-solid" placeholder="Month/Day/Year"
-                                    value="{{ old('date') }}"
-                                />
-                                <span class="form-text text-muted"
-                                    >Please enter Exam date.</span
-                                >
-                            </div>
-                        </div>
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label>Exam:</label><span class="text-danger">*</span>

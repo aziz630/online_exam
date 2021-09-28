@@ -8,6 +8,7 @@ use App\Models\ExamResult;
 use App\Models\Exam;
 use Illuminate\Http\Request;
 use DB;
+use View;
 class StudentOperation extends Controller
 {
     public function Student_Dashboard()
@@ -29,7 +30,7 @@ class StudentOperation extends Controller
 
     /****
      * 
-     * Student Selected Exam 
+     * Student Selected Exam function 
     */
 
     public function Student_exam()
@@ -46,10 +47,10 @@ class StudentOperation extends Controller
     }
 
 
-     /****
+    /****
      * 
-     * Student Session Distroy or logOut
-     */
+     * Student Session Distroy
+    */
 
     public function Student_LogOut(Request $request)
     {
@@ -67,19 +68,28 @@ class StudentOperation extends Controller
     public function Join_Exam($id)
     { 
         $data['page_title'] = 'Start Exam';
-        $data['allQuestion1'] = ExamQuestionMaster::where('exam_id', $id)->orderBy('exam_question_masters.subject', 'ASC')->get()->random(6);
-        
+        $data['allQuestion1'] = ExamQuestionMaster::where('exam_id', $id)
+        ->orderBy('exam_question_masters.subject', 'ASC')
+        ->get()
+        ->random(6);
 
+        $data['count'] = $data['allQuestion1']->count();
+        // dd($count);
+        // dd($data['allQuestion1']);
+
+       
+
+        // if (request()->ajax()) {
+        //     return Response::json(View::make('student.pagination_data',$data)->render());
+        // }
+
+        // return View::make('student.join_exam', $data);
        return view('student.join_exam', $data);
     }
 
-
     public function Submit_Student_Question(Request $request)
     {
-
-        // echo "<pre>";
-        // print_r($request->all());
-        // die();
+// dd($request);
         $yes_ans = 0;
         $no_ans = 0;
         $data = $request->all();
@@ -118,12 +128,19 @@ class StudentOperation extends Controller
         
         $page_title = 'Your Result';
         $result_info = ExamResult::where('id', $id)->get()->first();
-        $student_info = Student::select(['students.*','exams.title','exams.date'])->join('exams','students.exam','=','exams.id')->where('students.id', Session::get('student_session'))->get()->first();
-        // // dd($data['result_info']);
+        $student_info = Student::select(['students.*','exams.title','exams.date'])
+        ->join('exams','students.exam','=','exams.id')
+        ->where('students.id', Session::get('student_session'))
+        ->get()
+        ->first();
+
+        // dd($data['result_info']);
+
         $obtandmarks = $result_info->yes_ans;
         $total = $result_info->yes_ans+$result_info->no_ans;
+
         $persentage = $obtandmarks/$total*100;
-        // dd($persentage);
+        
 
         return view('student.show_result', compact('result_info', 'page_title', 'persentage', 'student_info'));
     }

@@ -60,15 +60,6 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-md-6">
-                    <div class="form-group">
-                        <label>Date Of Birth </label>
-                        <input type="text" name="dob" class="form-control form-control-solid"
-                        />
-                        <span class="form-text text-muted"
-                            >Please enter Exam date.</span>
-                    </div>
-                </div>
             </div>
             <div class="row">
                 <div class="form-group">
@@ -78,7 +69,6 @@
             </div>     
         </div>
     </form>
-
     </div>
   
 </div>

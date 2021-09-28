@@ -21,6 +21,7 @@ class CreateExamQuestionMastersTable extends Migration
             $table->string('options')->nullable();
             $table->string('status')->nullable();
             $table->string('subject')->nullable();
+            $table->string('description')->nullable();
             $table->timestamps();
         });
     }

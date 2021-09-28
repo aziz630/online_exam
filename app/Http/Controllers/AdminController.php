@@ -23,12 +23,13 @@ class AdminController extends Controller
     public function index()
     {
         $page_title = 'Admin Dashboard';
+        $pag_title = 'Teacher Dashboard';
         
         $TotalExam = Exam::where('status', true)->count();
         $TotalStudents = Student::where('status', true)->count();
         $TotalPortal = Portal::where('status', true)->count();
 
-        return view('admin.dashboard', compact('page_title', 'TotalExam', 'TotalStudents', 'TotalPortal'));
+        return view('admin.dashboard', compact('page_title', 'TotalExam', 'TotalStudents', 'TotalPortal', 'pag_title'));
 
     }
 
@@ -271,7 +272,6 @@ class AdminController extends Controller
         $data->name = $request->name;
         $data->email = $request->email;
         $data->phone = $request->phone;
-        $data->dob = $request->date;
         $data->exam = $request->exam;
         $data->password = $request->password;
         $data->status = 1;
@@ -299,7 +299,7 @@ class AdminController extends Controller
         $data->name = $request->name;
         $data->email = $request->email;
         $data->phone = $request->phone;
-        $data->dob = $request->date;
+        // $data->dob = $request->date;
         $data->exam = $request->exam;
         $data->password = $request->password;
         $data->status = 1;
@@ -503,10 +503,9 @@ class AdminController extends Controller
         ));
         $question->status = true;
         $question->subject = $request->subjects;
+        $question->description = $request->description;
         $question->save();
-        // if($question->save()){
-        //     $question->ExamSubject()->sync($request->subjects);
-        // }
+       
         
 
         return redirect(url('exam/question/'.$request->exam))->withSuccess('New Question added Successfully.');
